@@ -25,7 +25,7 @@ def user_channel
   while i < Channel.all.length
   user = User.all.sample
   channel = Channel.find(i)
-  UserChannel.create(user_id: user, channel_id: channel)
+  UserChannel.create(user_id: user.id, channel_id: channel.id)
   i +=1
   end
 end
@@ -37,7 +37,7 @@ end
 }
 
 
-def user_blocks
+def channel_blocks
 
   i = 1
   while i < 51
@@ -56,19 +56,15 @@ end
 100.times { |x|
   user = User.all.sample
   block = Block.all.sample
-    Comment.create(user_id: user.id, block_id: block.id)
+  Comment.create(user_id: user.id, block_id: block.id)
 }
 
 100.times{ |x|
-
   user = User.all.sample
   block = Block.all.sample
-  Like.create(user_id: user, block_id: block)
+  Like.create(user_id: user.id, block_id: block.id)
  }
 
 
-
-
-
-user_blocks
+channel_blocks
 user_channel
