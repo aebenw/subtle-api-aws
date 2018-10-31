@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get '/auth', to: 'auth#create'
   resources :blocks
   resources :channels
   resources :users

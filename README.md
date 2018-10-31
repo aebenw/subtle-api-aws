@@ -14,4 +14,9 @@ Relationships
 
 *TO DO*
   Pending relationships
-  Channel can have following 
+  Channel can have following
+
+
+
+10/31
+Forced SSL in config due to parsing error
