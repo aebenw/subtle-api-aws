@@ -10,8 +10,8 @@ module Api
 
       def create
         byebug
-        user = User.find_by(user_params)
-        if users
+        user = User.create(user_params)
+        if user
           render json: user
         else
           render json: {error: "user not found"}
@@ -26,5 +26,5 @@ module Api
 
 
     end
-end
+  end
 end
