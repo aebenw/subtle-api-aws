@@ -1,5 +1,0 @@
-class BlocksController < ApplicationController
-
-
-
-end
