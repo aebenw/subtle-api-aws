@@ -1,25 +1,6 @@
-# README
+For Models
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# final-project-backend
+Need to make comments one to many self-joining
+Need to work on likes
+  What's the relationship between like and object, not user
+Add pending to relationship status
