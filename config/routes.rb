@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      get '/auth', to: 'auth#create'
+      post '/auth', to: 'auth#create'
+      get '/current_user', to: 'auth#show'
+
       resources :blocks
       resources :channels
       resources :users
     end
-  end 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  end
 end
