@@ -10,11 +10,15 @@ module Api
 
       def create
         byebug
-        user = User.create(user_params)
-        if user
-          render json: user
+        user = User.new(user_params)
+        if user.save
+          serialized_data = ActiveModelSerializers::Adapter::Json.new(
+            UserSerializer.new(user)
+          ).serializable_hash
+          token = encode({jwt: user.id})
+          render json: {jwt: token, user: serialized_data}
         else
-          render json: {error: "user not found"}
+          render json: {error: "account already exists"}
         end
       end
 

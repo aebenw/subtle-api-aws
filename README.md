@@ -9,6 +9,16 @@ Add pending to relationship status
 Relationships
   For now, just not worrying about pending, but need to do this
 
+Set up Serializer for user
+  -New User
+    Uniq email
+    too short of password
+  -Log in
+    no match
+    wrong pass
+
+~AUTH
+  Need to create a secret and store it somewhere hidden for JWT
 
 
 
