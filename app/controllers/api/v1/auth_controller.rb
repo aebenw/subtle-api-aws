@@ -18,11 +18,9 @@ module Api
       end
 
       def show
-        byebug
         token = request.headers["Authorization"]
-        decoded_token = decode(token)
+        decoded_token = decode(token)[0]["jwt"]
         user = User.find_by(id: decoded_token)
-
         if user
           render json: user
         else
