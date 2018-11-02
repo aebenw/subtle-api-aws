@@ -8,9 +8,4 @@ class ApplicationController < ActionController::API
       JWT.decode(payload, "secret")
     end
 
-    def logged_in
-    end
-
-    def current_user
-    end
 end
