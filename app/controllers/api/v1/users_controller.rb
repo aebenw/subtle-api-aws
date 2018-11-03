@@ -9,7 +9,6 @@ module Api
       end
 
       def create
-        byebug
         user = User.new(user_params)
         if user.save
           serialized_data = ActiveModelSerializers::Adapter::Json.new(
@@ -25,7 +24,7 @@ module Api
       private
 
       def user_params
-        params.require(:user).permit(:email, :password)
+        params.require(:user).permit(:email, :password, :name)
       end
 
 
