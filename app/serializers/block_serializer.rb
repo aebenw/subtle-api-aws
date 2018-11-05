@@ -1,9 +1,16 @@
 class BlockSerializer < ActiveModel::Serializer
-  attributes :id, :content, :author_name
-  belongs_to :user
+  attributes :id, :content, :user
+  # belongs_to :user
   has_many :channels, through: :channel_block
 
-  def author_name
-    User.find(object.user_id).name
+  def user
+    user = User.find(object.user_id)
+    return {user_id: object.user_id, name: user.name}
   end
+
+  # def channels
+  #    channels = object.channels
+  #    return channels
+  # end
+
 end
