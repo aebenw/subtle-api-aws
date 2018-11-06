@@ -1,6 +1,5 @@
 class BlockSerializer < ActiveModel::Serializer
-  attributes :id, :content, :user
-  # belongs_to :user
+  attributes :id, :content, :user, :channels
   has_many :channels, through: :channel_block
 
   def user
