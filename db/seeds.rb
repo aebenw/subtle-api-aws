@@ -16,19 +16,31 @@ Relationship.create(follower_id: eben.id,  followed_id: joanna.id)
 Relationship.create(follower_id: joanna.id,  followed_id: danny.id)
 Relationship.create(follower_id: chris.id,  followed_id: danny.id)
 
-30.times { |x|
+100.times { |x|
   Channel.create(name: Faker::Hipster.sentence(3))
 }
 
 def user_channel
   i = 1
-  while i < Channel.all.length
-  user = User.all.sample
-  channel = Channel.find(i)
-  UserChannel.create(user_id: user.id, channel_id: channel.id)
+  while i < 100
+
+    channel = Channel.find(i)
+    if i < 40
+      user_arr = User.all[0..4]
+      user = user_arr.sample
+      UserChannel.create(user_id: user.id, channel_id: channel.id)
+    else
+      user = User.all.sample
+      UserChannel.create(user_id: user.id, channel_id: channel.id)
+    end
+
   i +=1
   end
 end
+
+30.times { |x|
+  User.create(name: Faker::Name.first_name, email: Faker::Internet.email, password: "test")
+}
 
 50.times  { |x|
   # NEED TO ADD IMG/CONTENT

@@ -1,3 +1,3 @@
 class RelationshipSerializer < ActiveModel::Serializer
 
-end 
+end
