@@ -1,9 +1,8 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :relationships, :name, :email, :blocks, :friends
-  has_many :blocks
+  attributes :id, :name, :email, :friends, :not_friends
   has_many :channels, through: :user_channel
-  has_many :comments
-  has_many :likes
+
+
 
 
   # def blockWithAuth
@@ -23,7 +22,8 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   def not_friends
-
+    nf = User.all - (object.followers + object.following)
+    return nf
   end
 
 end
