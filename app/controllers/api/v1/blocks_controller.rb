@@ -8,19 +8,18 @@ module Api
       end
 
       def create
-        block = Block.new(channel_params)
+        block = Block.new(content: block_params[:content], user_id: block_params[:user_id])
         if block.save
-          channels_arr = params["block"]["channels"].map{|x| Channel.find(x)}
-          channel.users.push(channels_arr)
-          byebug
+          channels_arr = params[:channels].map{|x| Channel.find(x)}
+          block.channels.push(channels_arr)
           render json: block
         end
       end
 
       private
 
-      def channel_params
-        params.require(:channel).permit(:name, :user_id, :channels)
+      def block_params
+        params.require(:block).permit(:content, :user_id)
       end
 
     end
