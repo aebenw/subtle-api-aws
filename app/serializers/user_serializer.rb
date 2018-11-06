@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :relationships, :name, :email, :blocks
+  attributes :id, :relationships, :name, :email, :blocks, :friends
   has_many :blocks
   has_many :channels, through: :user_channel
   has_many :comments
@@ -15,6 +15,15 @@ class UserSerializer < ActiveModel::Serializer
 
   def relationships
     Relationship.friends(object)
+  end
+
+  def friends
+    friends = object.followers + object.following
+    return friends
+  end
+
+  def not_friends
+
   end
 
 end

@@ -14,4 +14,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
   has_secure_password
 
+
+
+
 end
