@@ -1,6 +1,6 @@
 class UserSerializer < ActiveModel::Serializer
   attributes :id, :name, :email, :friends, :not_friends
-  has_many :channels, through: :user_channel
+  has_many :channels, through: :user_channel, serializer: ChannelSerializer
 
 
 
@@ -18,12 +18,12 @@ class UserSerializer < ActiveModel::Serializer
 
   def friends
     friends = object.followers + object.following
-    return friends
+    friends.map{|x| ShallowUserSerializer.new(x)}
   end
 
   def not_friends
     nf = User.all - (object.followers + object.following)
-    return nf
+    nf.map{|x| ShallowUserSerializer.new(x)}
   end
 
 end
