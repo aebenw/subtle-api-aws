@@ -28,21 +28,28 @@ module Api
       end
 
       def content
+
         num = [0,1,2].sample
         content = []
         type = ''
         if num == 0
-          content = User.all.sample(10)
+          10.times do
+             content << UserSerializer.new(User.all.sample)
+           end
           type = 'users'
         elsif num == 1
-          content = Channel.all.sample(10)
+          10.times do
+            content << ChannelSerializer.new(Channel.all.sample)
+          end
           type = 'channels'
         elsif num == 2
-          content = Block.all.sample(10)
+           10.times do
+             content << BlockSerializer.new(Block.all.sample)
+           end
           type = 'blocks'
         end
 
-        render json: {contet: content, type: type}
+        render json: {content: content, type: type}
 
       end
 
