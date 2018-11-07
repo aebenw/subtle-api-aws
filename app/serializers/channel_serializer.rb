@@ -1,10 +1,13 @@
 class ChannelSerializer < ActiveModel::Serializer
   attributes :id, :name, :users, :blocks
   has_many :users, through: :user_channel
-  has_many :blocks, through: :channel_block
+  # has_many :blocks, through: :channel_block
 
-  def blockss
-    object.blocks.map{ |x| x.user.name }
+  def blocks
+    object.blocks.map{ |x|
+    user = x.user.name
+    {block: x, name: user}
+    }
   end
 
 end

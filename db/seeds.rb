@@ -9,6 +9,7 @@ eben = User.create(name: "Eben", email: "e@e.com", password: "test")
 chris = User.create(name: "Chris", email: "c@c.com", password: "test")
 joanna = User.create(name: "Joanna", email: "j@j.com", password: "test")
 danny = User.create(name: "Danny", email: "d@d.com", password: "test")
+danny = User.create(name: "Joy", email: "joy@joy.com", password: "test")
 
 
 Relationship.create(follower_id: eben.id,  followed_id: chris.id)
