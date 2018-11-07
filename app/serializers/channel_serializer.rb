@@ -5,8 +5,8 @@ class ChannelSerializer < ActiveModel::Serializer
 
   def blocks
     object.blocks.map{ |x|
-    user = x.user.name
-    {block: x, name: user}
+    user = x.user
+    {block: x, user: user}
     }
   end
 

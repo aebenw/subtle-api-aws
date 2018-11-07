@@ -27,6 +27,25 @@ module Api
         end
       end
 
+      def content
+        num = rand(2)
+        content = []
+        type = ''
+        if num == 0
+          content = User.all.sample(10)
+          type = 'users'
+        elsif num == 1
+          content = Channel.all.sample(10)
+          type = 'channels'
+        elsif num == 2
+          content = Block.all.sample(10)
+          type = 'blocks'
+        end
+
+        render json: content
+
+      end
+
       private
 
       def user_params
