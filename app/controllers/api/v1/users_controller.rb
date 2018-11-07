@@ -28,7 +28,7 @@ module Api
       end
 
       def content
-        num = rand(2)
+        num = [0,1,2].sample
         content = []
         type = ''
         if num == 0
@@ -42,7 +42,7 @@ module Api
           type = 'blocks'
         end
 
-        render json: content
+        render json: {contet: content, type: type}
 
       end
 
