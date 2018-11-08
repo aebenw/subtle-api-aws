@@ -71,7 +71,7 @@ end
 100.times { |x|
   user = User.all.sample
   block = Block.all.sample
-  Comment.create(user_id: user.id, block_id: block.id)
+  Comment.create(user_id: user.id, block_id: block.id, content: Faker::Hipster.sentence(3))
 }
 
 100.times{ |x|

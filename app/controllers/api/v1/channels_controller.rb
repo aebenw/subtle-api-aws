@@ -8,6 +8,12 @@ module Api
         render json: channels
       end
 
+      def show
+
+        channel = Channel.find(params[:id])
+        render json: channel
+      end
+
       def create
         channel = Channel.new(channel_params)
         if channel.save
