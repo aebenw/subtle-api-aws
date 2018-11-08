@@ -1,6 +1,9 @@
 class CommentSerializer < ActiveModel::Serializer
-  attributes :id
-  belongs_to :user
-  belongs_to :blocks
-  has_many :likes
+  attributes :id, :content, :author
+
+  def author
+    ShallowUserSerializer.new(object.user)
+  end
+
+
 end

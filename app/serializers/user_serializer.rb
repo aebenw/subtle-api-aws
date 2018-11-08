@@ -1,15 +1,7 @@
 class UserSerializer < ActiveModel::Serializer
   attributes :id, :name, :email, :friends, :not_friends
-  has_many :channels, through: :user_channel, serializer: ChannelSerializer
+  has_many :channels, through: :user_channel, serializer: ShallowChannelSerializer
 
-
-
-
-  # def blockWithAuth
-  #   byebug
-  #   object.channels.blocks.map
-  #
-  # end
 
 
   def relationships

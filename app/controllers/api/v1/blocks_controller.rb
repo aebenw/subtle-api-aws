@@ -7,6 +7,12 @@ module Api
         render json: blocks
       end
 
+      def show
+
+        block = Block.find(params[:id])
+        render json: block
+      end
+
       def create
         block = Block.new(content: block_params[:content], user_id: block_params[:user_id])
         if block.save

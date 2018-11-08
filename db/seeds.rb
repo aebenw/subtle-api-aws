@@ -18,7 +18,8 @@ Relationship.create(follower_id: joanna.id,  followed_id: danny.id)
 Relationship.create(follower_id: chris.id,  followed_id: danny.id)
 
 100.times { |x|
-  Channel.create(name: Faker::Hipster.sentence(3))
+  num = [0,1].sample
+  Channel.create(name: Faker::Hipster.sentence(3), private: num)
 }
 
 def user_channel
@@ -46,6 +47,7 @@ end
 50.times  { |x|
   # NEED TO ADD IMG/CONTENT
   user = User.all.sample
+
   Block.create(user_id: user.id, content: Faker::Hipster.paragraphs(1))
 }
 
@@ -69,7 +71,7 @@ end
 100.times { |x|
   user = User.all.sample
   block = Block.all.sample
-  Comment.create(user_id: user.id, block_id: block.id)
+  Comment.create(user_id: user.id, block_id: block.id, content: Faker::Hipster.sentence(3))
 }
 
 100.times{ |x|

@@ -1,5 +1,5 @@
 class ChannelSerializer < ActiveModel::Serializer
-  attributes :id, :name, :authors, :blocks
+  attributes :id, :name, :private, :authors, :blocks
   # has_many :users, through: :user_channel, serializer: ShallowUserSerializer
   # has_many :blocks, through: :channel_block, serializer: ShallowBlockSerializer
 
