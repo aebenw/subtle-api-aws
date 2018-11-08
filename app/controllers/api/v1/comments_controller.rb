@@ -6,7 +6,6 @@ module Api
         def create
           comment = Comment.new(comment_params)
           if comment.save
-            byebug
             render json: comment
           end
         end
