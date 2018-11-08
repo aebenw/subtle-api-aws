@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2018_10_30_011023) do
 
   create_table "channels", force: :cascade do |t|
     t.string "name"
+    t.boolean "private"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
