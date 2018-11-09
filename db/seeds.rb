@@ -51,7 +51,7 @@ end
   # NEED TO ADD IMG/CONTENT
   user = User.all.sample
 
-  Block.create(user_id: user.id, content: Faker::Hipster.paragraphs(1).join)
+  Block.create(user_id: user.id, content: Faker::Hipster.paragraphs(1).join, image: "https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fimage.sportsmansguide.com%2Fadimgs%2Fl%2F1%2F165624_ts.jpg&f=1")
 }
 
 
