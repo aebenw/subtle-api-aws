@@ -51,7 +51,7 @@ end
   # NEED TO ADD IMG/CONTENT
   user = User.all.sample
 
-  Block.create(user_id: user.id, content: Faker::Hipster.paragraphs(1))
+  Block.create(user_id: user.id, content: Faker::Hipster.paragraphs(1).join)
 }
 
 
