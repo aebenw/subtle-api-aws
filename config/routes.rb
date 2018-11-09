@@ -5,6 +5,8 @@ Rails.application.routes.draw do
       get '/current_user', to: 'auth#show'
       delete '/relationships', to: 'relationships#destroy'
       get '/content', to: 'users#content'
+      post '/ChannelBlock', to: 'channel_block#create'
+
 
       resources :comments
       resources :blocks
