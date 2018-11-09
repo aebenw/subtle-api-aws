@@ -1,5 +1,5 @@
 class BlockSerializer < ActiveModel::Serializer
-  attributes :id, :content, :author, :channels
+  attributes :id, :content, :author, :channels, :image
   has_many :comments
 
 
@@ -15,5 +15,7 @@ class BlockSerializer < ActiveModel::Serializer
   def comments
     object.comments.map{|x| ShallowCommentSerializer.new(x)}
   end
+
+
 
 end
