@@ -19,7 +19,10 @@ Relationship.create(follower_id: chris.id,  followed_id: danny.id)
 
 100.times { |x|
   num = [0,1].sample
-  Channel.create(name: Faker::Hipster.sentence(3), private: num)
+  numbers = [1..4].sample
+  words = Faker::Hipster.words(numbers)
+  words = words.join(" ")
+  Channel.create(name: words, private: num)
 }
 
 def user_channel
