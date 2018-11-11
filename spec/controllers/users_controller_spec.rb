@@ -13,9 +13,9 @@
 #
 #   let(:invalid_attributes) do
 #     {
-#       title: nil,
-#       artist_name: nil,
-#       release_year: nil,
+#       title: null,
+#       artist_name: null,
+#       release_year: null,
 #       released: true
 #     }
 #   end

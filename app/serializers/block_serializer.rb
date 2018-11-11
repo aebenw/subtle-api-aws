@@ -4,10 +4,13 @@ class BlockSerializer < ActiveModel::Serializer
 
 
   def file
-    if object.file.filename
+  #     # Rails.application.routes.url_helpers.
+      # Rails.application.routes.url_helpers.url_for(object.file)
+      begin
       Rails.application.routes.url_helpers.rails_blob_path(object.file, only_path: true)
-      # object.file.filename
-    end
+      rescue 
+      return ''
+      end
   end
 
   def author
