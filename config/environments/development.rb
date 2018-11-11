@@ -6,6 +6,7 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
+
   # Do not eager load code on boot.
   config.eager_load = false
 
@@ -44,6 +45,8 @@ Rails.application.configure do
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
+  ##allowing  uploading of files from my react app ###
+  config.action_controller.forgery_protection_origin_check = false
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true

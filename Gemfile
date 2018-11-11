@@ -29,6 +29,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rack-cors'
 gem 'active_model_serializers'
 
+gem 'ngrok-tunnel'
+
+
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.8'

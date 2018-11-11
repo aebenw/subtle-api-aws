@@ -8,8 +8,17 @@ threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
 threads threads_count, threads_count
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
+
+# if Rails.env.development?
+#   require 'ngrok/tunnel'
+#   options = {   addr: ENV.fetch("PORT") { 3000 },
+#                 config: File.join(ENV['HOME'],'.ngrok2','ngrok.yml')
+#             }
+#   options[:subdomain] = ENV['NGROK_SUBDOMAIN'] if ENV['NGROK_SUBDOMAIN']
+#   puts "[NGROK] tunneling at " + Ngrok::Tunnel.start(options)
+# end
 #
-port        ENV.fetch("PORT") { 3000 }
+port        ENV.fetch("PORT") { 80 }
 
 # Specifies the `environment` that Puma will run in.
 #

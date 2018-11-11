@@ -25,7 +25,7 @@ module Api
       private
 
       def block_params
-        params.require(:block).permit(:content, :user_id)
+        params.require(:block).permit(:content, :user_id, :file)
       end
 
     end
