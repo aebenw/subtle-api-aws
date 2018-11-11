@@ -18,7 +18,9 @@ module Api
         puts user_params
       end
 
-      def not_friends
+      def edit
+        byebug
+        put params
 
       end
 

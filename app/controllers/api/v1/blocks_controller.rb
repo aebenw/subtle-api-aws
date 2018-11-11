@@ -13,6 +13,14 @@ module Api
         render json: block
       end
 
+      def update
+        # byebug
+        blob = ActiveStorage::Blob.find_by(filename: block_params[:file])
+        block = Block.find(params[:id])
+        block.file.attach(blob)
+        render json: block
+      end
+
       def create
         block = Block.new(content: block_params[:content], user_id: block_params[:user_id])
         if block.save
