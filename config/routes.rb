@@ -15,4 +15,14 @@ Rails.application.routes.draw do
       resources :relationships, except: [:destroy]
     end
   end
+
+  post '/rails/active_storage/direct_uploads' => 'direct_uploads#create'
+  # resources :active_storage
+
+  # namespace :rails do
+  #   namespace :v1 do
+  #
+  #     resources :active_storage
+  #   end
+  # end
 end

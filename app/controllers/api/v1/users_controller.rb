@@ -13,7 +13,9 @@ module Api
         render json: user
       end
 
-      def friends
+      def update
+        byebug
+        puts user_params
       end
 
       def not_friends
@@ -63,7 +65,7 @@ module Api
       private
 
       def user_params
-        params.require(:user).permit(:email, :password, :name)
+        params.require(:user).permit(:email, :password, :name, :profile)
       end
 
 
