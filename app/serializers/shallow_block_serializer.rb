@@ -11,13 +11,15 @@ class ShallowBlockSerializer < ActiveModel::Serializer
   end
 
   def file
-  #     # Rails.application.routes.url_helpers.
+
+   # Rails.application.routes.url_helpers.
       # Rails.application.routes.url_helpers.url_for(object.file)
       begin
         short_url = Rails.application.routes.url_helpers.rails_blob_path(object.file, only_path: true)
-        url = "https://5e9c4f4a.ngrok.io" + short_url
+        url = "https://0bdc3623.ngrok.io" + short_url
         return url
       rescue
+        byebug
       return ''
       end
   end
