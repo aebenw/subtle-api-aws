@@ -23,6 +23,10 @@ module Api
 
       def create
         block = Block.new(content: block_params[:content], user_id: block_params[:user_id])
+            if block_params[:file]
+              blob = ActiveStorage::Blob.find_by(filename: block_params[:file])
+              block.file.attach(blob)
+            end
         if block.save
           channels_arr = params[:channels].map{|x| Channel.find(x)}
           block.channels.push(channels_arr)
