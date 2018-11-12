@@ -33,7 +33,7 @@ Rails.application.configure do
   config.action_controller.forgery_protection_origin_check = false
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
-  config.active_storage.service = :amazon
+  config.active_storage.service = :local
   # ActiveStorage::DirectUploadsController.instance_eval { skip_forgery_protection }
 
   # Mount Action Cable outside main process or domain

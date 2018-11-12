@@ -8,7 +8,7 @@ class BlockSerializer < ActiveModel::Serializer
       # Rails.application.routes.url_helpers.url_for(object.file)
       begin
         short_url = Rails.application.routes.url_helpers.rails_blob_path(object.file, only_path: true)
-        url = "https://0bdc3623.ngrok.io" + short_url
+        url = "https://b210ed40.ngrok.io" + short_url
         return url
       rescue
       return ''
