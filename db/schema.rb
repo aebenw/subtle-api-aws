@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 2018_11_09_202909) do
   create_table "user_channels", force: :cascade do |t|
     t.integer "user_id"
     t.integer "channel_id"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -95,6 +96,7 @@ ActiveRecord::Schema.define(version: 2018_11_09_202909) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

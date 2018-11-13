@@ -14,13 +14,21 @@ module Api
       end
 
       def update
+        user = User.find(user_params[:id])
+        user.update(name: user_params[:name], description: user_params[:description])
         byebug
-        puts user_params
+        if user_params[:profile]
+
+          blob = ActiveStorage::Blob.find_by(filename: user_params[:profile])
+          user.profile.attach(blob)
+        end
+        user.save
+        render json: user
       end
 
       def edit
         byebug
-        put params
+
 
       end
 
@@ -71,7 +79,7 @@ module Api
       private
 
       def user_params
-        params.require(:user).permit(:email, :password, :name, :profile)
+        params.require(:user).permit(:email, :password, :name, :profile, :description, :id)
       end
 
 
