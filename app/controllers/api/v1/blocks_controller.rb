@@ -26,6 +26,7 @@ module Api
             if block_params[:file]
               blob = ActiveStorage::Blob.find_by(filename: block_params[:file])
               block.file.attach(blob)
+
             end
         if block.save
           channels_arr = params[:channels].map{|x| Channel.find(x)}

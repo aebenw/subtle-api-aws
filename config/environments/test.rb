@@ -12,7 +12,7 @@ Rails.application.configure do
   ##allowing  uploading of files from my react app ###
   config.action_controller.forgery_protection_origin_check = false
 
-  
+
   # Do not eager load code on boot. This avoids loading your whole application
   # just for the purpose of running a single test. If you are using a tool that
   # preloads Rails for running tests, you may have to set it to true.
@@ -35,7 +35,7 @@ Rails.application.configure do
   config.action_controller.allow_forgery_protection = false
 
   # Store uploaded files on the local file system in a temporary directory
-  config.active_storage.service = :test
+  config.active_storage.service = :amazon
 
   config.action_mailer.perform_caching = false
 
