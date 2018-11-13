@@ -3,7 +3,6 @@ module V1
 
 class RelationshipsController < ApplicationController
   def create
-    byebug
     Relationship.create(relationship_params)
     user = User.find(relationship_params[:followed_id])
 
