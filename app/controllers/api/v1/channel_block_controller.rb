@@ -5,9 +5,12 @@ module Api
     class ChannelBlockController < ApplicationController
 
       def create
-        c = ChannelBlock.new(cb_params)
-        if c.save
-          render json: {message: "very good"}
+
+        cb = ChannelBlock.new(cb_params)
+        if cb.save
+
+          res = cb.channel
+          render json: res
         else render json: {errors: c.errors, params: cb_params}
         end
 
