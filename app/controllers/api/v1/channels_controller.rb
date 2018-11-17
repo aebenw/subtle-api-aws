@@ -15,10 +15,10 @@ module Api
       end
 
       def create
-        channel = Channel.new(channel_params)
+        channel = Channel.new(name: channel_params[:name])
         if channel.save
-          users_arr = params["users"].map{|x| User.find(x)}
-          channel.users.push(users_arr)
+          user = User.find(channel_params[:user_id])
+          channel.users.push(user)
           render json: channel
         end
       end
@@ -26,7 +26,7 @@ module Api
       private
 
       def channel_params
-        params.require(:channel).permit(:name)
+        params.require(:channel).permit(:name, :user_id)
       end
 
     end

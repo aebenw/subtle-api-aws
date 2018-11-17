@@ -5,7 +5,7 @@ module Api
     class ChannelBlockController < ApplicationController
 
       def create
-
+        
         cb = ChannelBlock.new(cb_params)
         if cb.save
 
