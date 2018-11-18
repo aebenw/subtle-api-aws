@@ -9,7 +9,7 @@ class ShallowUserSerializer < ActiveModel::Serializer
 
 
         # FOR RUNNING WITH s3
-        url = object.file.service_url
+        url = object.profile.service_url
         return url
       rescue
       return ''
