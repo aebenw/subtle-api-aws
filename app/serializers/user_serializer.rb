@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :email, :friends, :not_friends, :file
+  attributes :id, :name, :email, :friends, :not_friends, :description, :file
   has_many :channels, through: :user_channel, serializer: ShallowChannelSerializer
 
 
