@@ -16,9 +16,8 @@ module Api
       def update
         user = User.find(user_params[:id])
         user.update(name: user_params[:name], description: user_params[:description])
-        byebug
-        if user_params[:profile]
 
+        if user_params[:profile]
           blob = ActiveStorage::Blob.find_by(filename: user_params[:profile])
           user.profile.attach(blob)
         end
