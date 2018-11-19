@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       delete '/relationships', to: 'relationships#destroy'
       get '/content', to: 'users#content'
       post '/ChannelBlock', to: 'channel_block#create'
+      post '/channels/followers', to: 'channels#channel_follower'
+
 
 
       resources :comments

@@ -23,10 +23,19 @@ module Api
         end
       end
 
+      def channel_follower
+        ChannelFollower.create(channel_id: channel_params[:id], follower_id: channel_params[:user_id])
+        user = ShallowUserSerializer.new(User.find(channel_params[:user_id]))
+
+      render json: user
+
+      end
+
+
       private
 
       def channel_params
-        params.require(:channel).permit(:name, :user_id)
+        params.require(:channel).permit(:name, :user_id, :id)
       end
 
     end

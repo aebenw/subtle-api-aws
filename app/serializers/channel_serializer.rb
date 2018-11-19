@@ -1,5 +1,5 @@
 class ChannelSerializer < ActiveModel::Serializer
-  attributes :id, :name, :private, :authors, :blocks
+  attributes :id, :name, :private, :authors, :blocks, :followers
   # has_many :users, through: :user_channel, serializer: ShallowUserSerializer
   # has_many :blocks, through: :channel_block, serializer: ShallowBlockSerializer
 
@@ -11,6 +11,11 @@ class ChannelSerializer < ActiveModel::Serializer
 
   def authors
     object.users.map{|x| ShallowUserSerializer.new(x)}
+  end
+
+  def followers
+    object.followers.map{|x|
+    ShallowUserSerializer.new(x)}
   end
 
 end
