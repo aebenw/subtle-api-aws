@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get '/content', to: 'users#content'
       post '/ChannelBlock', to: 'channel_block#create'
       post '/channels/followers', to: 'channels#channel_follower'
+      delete '/channels/followers', to: 'channels#channel_unfollower'
 
 
 
