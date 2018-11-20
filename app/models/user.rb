@@ -1,11 +1,15 @@
 class User < ApplicationRecord
   has_many :user_channels
+  has_many :channel_followers
   has_many :channels, through: :user_channels
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :blocks, through: :channels, dependent: :destroy
+
+  has_many :followed_channels, class_name: "ChannelFollower", foreign_key: "follower_id"
 
   #Self - joining
-  has_many :blocks, through: :channels, dependent: :destroy
+
   has_many :active_relationships, class_name:  "Relationship",
                                 foreign_key: "follower_id",
                                 dependent:   :destroy

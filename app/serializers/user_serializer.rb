@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :email, :friends, :not_friends, :description, :file
+  attributes :id, :name, :email, :friends, :not_friends, :description, :file, :channel_follow
   has_many :channels, through: :user_channel, serializer: ShallowChannelSerializer
 
 
@@ -34,6 +34,12 @@ class UserSerializer < ActiveModel::Serializer
     filter = nf.select{|x| x.id !=  object.id }
 
     filter.map{|x| ShallowUserSerializer.new(x)}
+  end
+
+  def channel_follow
+    object.followed_channels.map{|x| ShallowChannelSerializer.new(x.channel)}
+    rescue
+    return ''
   end
 
 end

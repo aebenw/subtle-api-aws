@@ -23,10 +23,36 @@ module Api
         end
       end
 
+      def channel_follower
+        ChannelFollower.create(channel_id: channel_params[:id], follower_id: channel_params[:user_id])
+        user = ShallowUserSerializer.new(User.find(channel_params[:user_id]))
+
+      render json: user
+
+      end
+
+      def channel_unfollower
+        cf = ChannelFollower.find_by(channel_id: channel_params[:id], follower_id: channel_params[:user_id])
+        user = ShallowUserSerializer.new(cf.follower)
+        channel = ShallowChannelSerializer.new(cf.channel)
+
+        cf.destroy
+
+      render json: {user: user, channel: channel}
+
+      end
+
+    def destroy
+      channel = Channel.find(params[:id])
+      channel.destroy
+      render json: {message: "deleted"}
+    end
+
+
       private
 
       def channel_params
-        params.require(:channel).permit(:name, :user_id)
+        params.require(:channel).permit(:name, :user_id, :id)
       end
 
     end
