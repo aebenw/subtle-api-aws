@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :channels, through: :user_channels
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :blocks, through: :channels, dependent: :destroy
+  has_many :blocks, dependent: :destroy
 
   has_many :followed_channels, class_name: "ChannelFollower", foreign_key: "follower_id"
 
@@ -26,7 +26,12 @@ class User < ApplicationRecord
   #bcrypt
   has_secure_password
 
+  def friends
 
+    friends = followers + following
+    filter = friends.select{|x| x.id !=  self.id }
+    return filter
+  end
 
 
 

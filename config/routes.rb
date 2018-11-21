@@ -8,9 +8,10 @@ Rails.application.routes.draw do
       post '/ChannelBlock', to: 'channel_block#create'
       post '/channels/followers', to: 'channels#channel_follower'
       delete '/channels/followers', to: 'channels#channel_unfollower'
+      # get '/feeds/:id', to: 'feeds#index'
 
 
-
+      resources :feeds
       resources :comments
       resources :blocks
       resources :channels
