@@ -3,26 +3,61 @@ class Feed < ApplicationRecord
   def self.initialize(user)
     current_user = User.find(user)
     friends = current_user.friends
-    content = Hash.new
+    json = Hash.new
+    arr = []
 
-    10.times do |x|
+
+    10.times do |z|
       friend = friends.sample
       num = rand(4)
-      num2 = rand(2)
+      num2 = rand(4)
 
         if num == 0
-          content["channels"] = friend.channels[0..num2]
+          user = ShallowUserSerializer.new(friend).attributes
+          channels = friend.channels.sample(num2).map{ |x| ShallowChannelSerializer.new(x)}
+          item = {
+            type: "channels",
+            user: user,
+            content: channels
+          }
+          arr << item
         elsif num == 1
-          content["blocks"] = friend.blocks[0..num2]
+          user = ShallowUserSerializer.new(friend).attributes
+          blocks = friend.blocks.sample(num2).map{ |x| ShallowBlockSerializer.new(x)}
+          item = {
+            type: "blocks",
+            user: user,
+            content: blocks
+          }
+          arr << item
+
+
         elsif num == 2
-          content["friends"] = friend.friends[0..num2]
+          user = ShallowUserSerializer.new(friend).attributes
+          feed_friends = friend.friends.sample(num2).map{ |x| ShallowUserSerializer.new(x)}
+          item = {
+            type: "friends",
+            user: user,
+            content: feed_friends
+          }
+          arr << item
+
+
         elsif num == 3
-           content["followed_channels"] = friend.followed_channels[0..num2]
-        elsif num == 4
-           content["comment"] = friend.comments[0..num2]
+          user = ShallowUserSerializer.new(friend).attributes
+          channels = friend.followed_channels.sample(num2).map{ |x| ShallowChannelSerializer.new(x.channel)}
+
+          item = {
+            type: "followed_channels",
+            user: user,
+            content: channels
+          }
+          arr << item
+
         end
     end
-    return content
+    json[:feed] = arr
+    return json
   end
 
 
