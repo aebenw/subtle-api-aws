@@ -5,7 +5,6 @@ module Api
     class FeedsController < ApplicationController
 
       def show
-        byebug
         render json: Feed.initialize(params[:id])
       end
 
