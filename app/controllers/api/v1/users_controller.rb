@@ -36,7 +36,7 @@ module Api
           token = encode({jwt: user.id})
           render json: {jwt: token, user: serialized_data}
         else
-          render json: {error: "account already exists"}
+          render json: {error: user.errors}
         end
       end
 

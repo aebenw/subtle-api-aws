@@ -26,6 +26,14 @@ class User < ApplicationRecord
   #bcrypt
   has_secure_password
 
+  #validations
+  validates :name, presence: true, on: :create
+  validates :email, presence: true, on: :create
+  validates :email, uniqueness: true, on: :create
+  validates :password, presence: true, on: :create
+  validates :password, length: { minimum: 4 }
+
+
   def friends
 
     friends = followers + following
