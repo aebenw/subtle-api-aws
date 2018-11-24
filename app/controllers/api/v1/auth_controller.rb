@@ -12,7 +12,7 @@ module Api
           token = encode({jwt: @user.id})
             render json: {jwt: token, user: serialized_data}
         else
-          render json: {error: "User is invalid"}, status: 401
+          render json: {error: "Username or password is invalid"}, status: 401
         end
       end
 
