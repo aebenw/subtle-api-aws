@@ -14,7 +14,6 @@ module Api
       end
 
       def update
-        # byebug
         blob = ActiveStorage::Blob.find_by(filename: block_params[:file])
         block = Block.find(params[:id])
         block.file.attach(blob)
