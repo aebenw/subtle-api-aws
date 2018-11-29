@@ -1,5 +1,5 @@
 class ShallowBlockSerializer < ActiveModel::Serializer
-  attributes :id, :content, :author, :comments, :image, :file
+  attributes :id, :name, :content, :author, :comments, :image, :file
   # belongs_to :user, serializer: ShallowUserSerializer
 
   def author

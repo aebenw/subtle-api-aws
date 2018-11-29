@@ -1,5 +1,5 @@
 class BlockSerializer < ActiveModel::Serializer
-  attributes :id, :content, :author, :channels, :image, :file
+  attributes :id, :name, :content, :author, :channels, :image, :file
   has_many :comments
 
 

@@ -21,6 +21,7 @@ module Api
       end
 
       def create
+        byebug
         block = Block.new(content: block_params[:content], user_id: block_params[:user_id])
             if block_params[:file]
               blob = ActiveStorage::Blob.find_by(filename: block_params[:file])
